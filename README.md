@@ -88,3 +88,14 @@ DETAIL: 本文3
 ## ライセンス
 
 このスクリプトは自由に利用および改変できます。使用は自己責任で行ってください。
+
+
+## 思想的背景
+
+文書を平坦なテキストとして転記するのではなく、見出しの親子関係と本文・箇条書きを列へ分けて残し、表として確認・整理できるようにする設計です。元の文書の見た目を完全再現する用途とは区別します。
+
+## 開発履歴と展開
+
+[2024年10月12日のコード追加](https://github.com/masa-san-jp/Googledoc2spreadsheet/commit/0800fc9fdf2604522df8d2b6be8a24c992c11018) で [Googledoc2spreadsheet.gs](Googledoc2spreadsheet.gs) を保存しています。現行コードの入口は importGoogleDocToSpecifiedSheetByUrl で、上記の旧関数名 importGoogleDocToSheetByUrl とは異なります。
+
+利用を展開する際は、出力先の内容を消去する sheet.clear() があるため、まず専用の検証用シートで階層・本文・箇条書きの対応を確かめてください。入力・出力URL、対象シート、アクセス権限を確認し、残すべきデータがあるシートへそのまま実行しないでください。
